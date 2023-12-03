@@ -7,10 +7,6 @@ fn main() {
 fn part1(input: &str) -> String {
     let mut out = 0;
     for line in input.lines() {
-        //let mut red_cubes = 0;
-        //let mut green_cubes = 0;
-        //let mut blue_cubes = 0;
-
         let mut possible = true;
 
         let colon_pos = line.find(":").unwrap();
@@ -31,19 +27,16 @@ fn part1(input: &str) -> String {
                 let dice_count: Vec<&str> = data.split(" ").collect();
                 let dice_count = dice_count[1].parse::<i32>().unwrap();
                 if data.contains("blue") {
-                    //blue_cubes += dice_count;
                     if dice_count > 14 {
                         possible = false;
                     }
                 }
                 if data.contains("red") {
-                    //red_cubes += dice_count;
                     if dice_count > 12 {
                         possible = false;
                     }
                 }
                 if data.contains("green") {
-                    //green_cubes += dice_count;
                     if dice_count > 13 {
                         possible = false;
                     }
@@ -53,14 +46,9 @@ fn part1(input: &str) -> String {
 
         if possible {
             out += id;
-        }
-        else {
+        } else {
             println!("{id}");
         }
-//        if red_cubes <= 12 && green_cubes <= 13 && blue_cubes <= 14 {
-//            out += id;
-//            println!("{id}");
-//       }
     }
 
     out.to_string()
