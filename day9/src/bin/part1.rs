@@ -5,10 +5,11 @@ fn main() {
 }
 
 fn calculate(line: Vec<i32>) -> i32 {
-    let step = line.windows(2)
-                .into_iter()
-                .map(|num_pair| num_pair[1] - num_pair[0])
-                .collect::<Vec<i32>>();
+    let step = line
+        .windows(2)
+        .into_iter()
+        .map(|num_pair| num_pair[1] - num_pair[0])
+        .collect::<Vec<i32>>();
 
     let mut inc = step.last().unwrap().clone();
 
